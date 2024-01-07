@@ -143,6 +143,11 @@ func (b *Bucket) Release(headers http.Header) error {
 	global := headers.Get("X-RateLimit-Global")
 	resetAfter := headers.Get("X-RateLimit-Reset-After")
 
+	s.log(LogInformational, "remaining %s", remaining)
+	s.log(LogInformational, "reset %s", reset)
+	s.log(LogInformational, "global %s", global)
+	s.log(LogInformational, "resetAfter %s", resetAfter)
+
 	// Update global and per bucket reset time if the proper headers are available
 	// If global is set, then it will block all buckets until after Retry-After
 	// If Retry-After without global is provided it will use that for the new reset
