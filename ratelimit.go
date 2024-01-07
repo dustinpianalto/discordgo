@@ -8,6 +8,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+	"log"
 )
 
 // customRateLimit holds information for defining a custom rate limit
